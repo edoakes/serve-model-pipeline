@@ -15,7 +15,6 @@ class Classify:
         # Here you would load your actual model.
         self.model = random.random
 
-    @serve.accept_batch
     def __call__(self, request):
         return self.model()
 
