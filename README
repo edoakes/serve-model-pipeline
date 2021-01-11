@@ -10,3 +10,10 @@ To run:
   serve start
   python deploy.py example_pipeline.json 
   curl -X GET localhost:8000/api # Should return a random float in [0, 1).
+ 
+
+Other notes:
+- Deploying the pipeline (deploy.py) could be done from a remote machine via the Ray client.
+- The model code definitions should be built into the Docker image that the Ray cluster is running.
+- This can support all of the Ray Serve features - scaling each model, batching requests, using GPUs, etc.
+- Error handling is really sloppy right now (e.g., it won't clean up resources if it fails halfway through), but we could make this declarative.
