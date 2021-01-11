@@ -1,0 +1,12 @@
+Simple POC of deploying model pipelines from a config on Ray Serve.
+
+- Requires that you're running on the Ray nightly wheels (for Serve CLI).
+- "Models" are defined in serve_pipeline/__init__.py. They're currently just random number generators but could have any Python code filled in.
+- Pipeline is defined in example_pipeline.json. The "class" field must be the import path to a class that's installed in the Python environment on the Ray cluster.
+
+To run:
+  pip install -e serve_pipeline
+  ray start --head
+  serve start
+  python deploy.py example_pipeline.json 
+  curl -X GET localhost:8000/api # Should return a random float in [0, 1).

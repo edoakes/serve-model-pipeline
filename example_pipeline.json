@@ -1,0 +1,17 @@
+{
+  "name": "example_pipeline",
+  "route": "/api",
+  "models": [
+    {
+      "name": "GenerateEmbedding",
+      "class": "serve_pipeline.GenerateEmbedding",
+      "args": []
+    },
+    {
+      "name": "Classify",
+      "class": "serve_pipeline.Classify",
+      "config": {"num_replicas": 2},
+      "args": []
+    }
+  ]
+}
